@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<title>Kontakt - MediSokrates</title>
+	<meta charset="utf-8">
+	<meta name = "format-detection" content = "telephone=no" />
+	<meta name="description" content="Kontakt Lekáreň Marko">
+	<meta name="keywords" content="kontakt,lekáreň,lekáreň marko,zlaté klasy">
+	<meta name="robots" content="index, follow">
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="css/grid.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/contact-form.css">
+
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-migrate-1.2.1.js"></script>
+	<script src="js/script.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAku2ofpsmpxZimCvefEoovz1gkhFHcHFw&callback=initMap"
+  type="text/javascript"></script>
+	<!--[if (gt IE 9)|!(IE)]><!-->
+	<script src="js/wow.js"></script>
+	<script>
+		$(document).ready(function () {
+			if ($('html').hasClass('desktop')) {
+				new WOW().init();
+			}
+		});
+	</script>
+	<!--<![endif]-->
+	<!--[if lt IE 8]>
+	<div style=' clear: both; text-align:center; position: relative;'>
+	 <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+		 <img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+	 </a>
+	</div>
+	<![endif]-->
+	<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<link rel="stylesheet" type="text/css" media="screen" href="css/ie.css">
+	<![endif]-->
+	</head>
+<body class="index-4">
+<!--==============================header=================================-->
+<header id="header">
+	<div id="stuck_container">
+		<div class="container">
+			<div class="row">
+				<div class="grid_12">
+					<h1><a href="http://www.medisokrates.sk">MediSokrates</a><span>zdravotné stredisko Zlaté Klasy</span></h1>
+					<nav>
+						<ul class="sf-menu">
+							<li><a href="index.html">Úvod</a></li>
+							<li><a href="lekari.html">Lekári</a>
+								<ul>
+									<li><a href="lekari.html#vseobecny">Praktický lekár pre dospelých</a></li>
+									<li><a href="lekari.html#detsky">Praktický lekár pre deti a dorast</a></li>
+									<li><a href="lekari.html#endokrinolog">Endokrinologická ambulancia</a></li>
+									<li><a href="lekari.html#gynekolog">Gynekologická ambulancia</a></li>
+									<li><a href="lekari.html#zubar">Zubná ambulancia</a></li>
+								</ul>
+							</li>
+							<li><a href="lekaren.html">Lekáreň</a></li>
+							<li class="current"><a href="kontakt.html">Kontakt</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<!--=======content================================-->
+
+<section id="content">
+	<div class="full-width-container block-1">
+		<div class="container">
+			<div class="row">
+				<div class="grid_12">
+					<header>
+						<h2><span>Zdravotné stredisko MediSokrates</span></h2>
+					</header>
+					<div class="content_map">
+						<div class="google-map-api"> 
+							<div id="map-canvas" class="gmap"></div> 
+						</div> 
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="full-width-container block-2">
+		<div class="container">
+			<div class="row">
+				<div class="grid_5">
+					<h2>Adresa</h2>
+					<p class="el-1">Poštová ulica 778/2</p>
+					<p class="el-1">Zlaté Klasy 930 39</p>
+				</div>
+				<div class="grid_6 preffix_1">
+					<div>
+						<hader>
+							<h2><span>Telefónne čísla</span></h2>
+						</hader>
+						<p class="el-1"><a href="tel:0911712888">0911 712 888</a></p>
+						<p class="el-1"><a href="tel:0911713888">0911 713 888</a></p>
+						<p class="el-1"><a href="mailto:lekarenmarko@gmail.com">lekarenmarko@gmail.com</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--=======footer=================================-->
+<footer id="footer">
+	<div class="container">
+		<div class="row">
+			<div class="grid_12 copyright">
+				<pre>Kontakt: <a href="tel:0911712888">0911 712 888</a>, <a href="tel:0911713888">0911 713 888</a>, <a href="mailto:lekarenmarko@gmail.com">lekarenmarko@gmail.com</a></pre>
+				<pre>© <span id="copyright-year"></span> MediSokrates</pre>
+			</div>
+		</div>
+	</div>
+	<div class="footer_bottom">created by <a href="http://www.lee.sk" title="Tvorba webových stránok">Lee.sk</a></div>
+</footer>
+<script type="text/javascript">
+	google_api_map_init();
+	function google_api_map_init(){
+		var map;
+		var coordData = new google.maps.LatLng(parseFloat(48.119594), parseFloat(17.421192));
+		var markCoord1 = new google.maps.LatLng(parseFloat(48.119594), parseFloat(17.421192));
+		var marker;
+		
+		function initialize() {
+			var mapOptions = {
+				zoom: 17,
+				center: coordData,
+				scrollwheel: false,
+			}
+
+			var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+			
+			marker = new google.maps.Marker({
+				map:map,
+				position: markCoord1,
+			});
+
+			google.maps.event.addDomListener(window, 'resize', function() {
+				map.setCenter(coordData);
+				var center = map.getCenter();
+			});
+		}
+
+		google.maps.event.addDomListener(window, "load", initialize); 
+
+	}
+
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-359140-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
